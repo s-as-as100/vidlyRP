@@ -3,16 +3,20 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state= {  //  any data is used in component by using the state object
         count :0,
-        tags : ["tag1", "tag2","tag3"]
+        tags : []
        
 
     }
 
     // warning  each element in an array or iterator should have a unique key because each item in array should be iterated when any 
-    //  wthat element is changed nd what changed in the virtual dom is updated 
+    //  what element is changed nd what changed in the virtual dom is updated 
      // react is convert into 10 to 10px
      
     // this keyword is refer to current object
+    renderTags(){
+        if (this.state.tags.length === 0) return <p>There are no tags</p>
+         return  <ul>{this.state.tags.map( tag =>  <li key={tag}>{tag}</li> )}</ul>
+    }
     render() { 
         
         // let classes = "badge m-2 badge-"; // this two lines convert class extract to method in class
@@ -20,14 +24,8 @@ class Counter extends Component {
         return (
             ///  react.createElement  // jsx expersion it compile react element
             <React.Fragment> 
-                
-                <span  className={this.getBadgeClasses()}>{ this.formatCount()} </span>  
-                <button className="btn btn-secondary btn-sm">Increment</button>
-                <ul>
-                    {
-                        this.state.tags.map( tag =>  <li key={tag}>{tag}</li> )
-                    }
-                </ul>
+               {this.state.tags.length === 0 && "please create a new tags"}
+                {this.renderTags()}
             </React.Fragment>
         )
     }
