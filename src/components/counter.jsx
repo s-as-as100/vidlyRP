@@ -20,10 +20,11 @@ class Counter extends Component {
 
 
 
-    handleIncrement = () => {
+    handleIncrement = e => { // passing event Arguments
         // console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
         // by using of bind method 
-        this.setState({count: this.state.count + 1})
+        console.log(e)
+        this.setState({count: this.state.count + 1}) // uopdated the state 
     }
 
     // warning  each element in an array or iterator should have a unique key because each item in array should be iterated when any 
@@ -43,7 +44,7 @@ class Counter extends Component {
             ///  react.createElement  // jsx expersion it compile react element
             <div>
              <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-             <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+             <button onClick={ () => this.handleIncrement(e)} className="btn btn-secondary btn-sm">Increment</button>
 
             </div>
         )
