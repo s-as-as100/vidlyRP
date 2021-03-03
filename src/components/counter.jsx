@@ -21,8 +21,9 @@ class Counter extends Component {
 
 
     handleIncrement = () => {
-        console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
+        // console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
         // by using of bind method 
+        this.setState({count: this.state.count + 1})
     }
 
     // warning  each element in an array or iterator should have a unique key because each item in array should be iterated when any 
