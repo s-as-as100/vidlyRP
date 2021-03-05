@@ -14,8 +14,10 @@ class Counters extends Component {
         return ( <div>
             {
                 this.state.counters.map(counter => 
-                <Counter key={counter.id} value={counter.value} selected ={true} />)
-            
+                <Counter key={counter.id} value={counter.value}  />
+                     
+                    )
+              // passing the children as props 
         }
         </div>
          );
@@ -23,3 +25,10 @@ class Counters extends Component {
 }
  
 export default Counters;
+
+// props vs state 
+// props is give to data of components whereas state include data local nd private of that component 
+// other components cannot access that state  is totally internally of that components 
+// props is read only (it cannot changed the input of that component)
+// react  is not allowed  (this.props.value = 0) to changed any property of props object 
+//

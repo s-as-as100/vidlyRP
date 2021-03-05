@@ -38,6 +38,7 @@ class Counter extends Component {
     // }
     // every react component has property called Props
     render() { 
+        // console.log(this.props) // childern props 
         //  console.log('props' ,this.props)
         // let classes = "badge m-2 badge-"; // this two lines convert class extract to method in class
         // classes+= (this.state.value===0) ? 'warning' : "primary";
