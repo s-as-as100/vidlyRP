@@ -26,6 +26,12 @@ class Counter extends Component {
         //console.log(e)
         this.setState({value: this.state.value + 1}) // uopdated the state 
     }
+    // !IMPORTANT 
+    // {
+    //     THE COMPONENT THAT OWNS A PIECE OF THE STATE, SHOULD BE THE ONE MODIFYING IT 
+    // }
+
+   
 
     // warning  each element in an array or iterator should have a unique key because each item in array should be iterated when any 
     //  what element is changed nd what changed in the virtual dom is updated 
@@ -47,6 +53,7 @@ class Counter extends Component {
             <div>
              <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
              <button onClick={ () => this.handleIncrement()} className="btn btn-secondary btn-sm">Increment</button>
+             <button onClick={this.props.onDelete} className="btn btn-danger btn-sm m-2">Delete</button>
 
             </div>
         )

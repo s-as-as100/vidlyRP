@@ -9,12 +9,15 @@ class Counters extends Component {
             {id:3 , value: 0},
             {id:4 , value: 0}
         ]
+    };
+    handleDelete = () =>{
+        console.log(" handle called")
     }
     render() { 
         return ( <div>
             {
                 this.state.counters.map(counter => 
-                <Counter key={counter.id} value={counter.value}  />
+                <Counter key={counter.id} value={counter.value} id= {counter.id} onDelete= {this.handleDelete}/>
                      
                     )
               // passing the children as props 
