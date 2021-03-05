@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state= {  //  any data is used in component by using the state object
-        count : 0
+        value: this.props.value
        
        
 
@@ -24,7 +24,7 @@ class Counter extends Component {
         // console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
         // by using of bind method 
         //console.log(e)
-        this.setState({count: this.state.count + 1}) // uopdated the state 
+        this.setState({value: this.state.value + 1}) // uopdated the state 
     }
 
     // warning  each element in an array or iterator should have a unique key because each item in array should be iterated when any 
@@ -36,10 +36,11 @@ class Counter extends Component {
     //     if (this.state.tags.length === 0) return <p>There are no tags</p>
     //      return  <ul>{this.state.tags.map( tag =>  <li key={tag}>{tag}</li> )}</ul>
     // }
+    // every react component has property called Props
     render() { 
-        
+        //  console.log('props' ,this.props)
         // let classes = "badge m-2 badge-"; // this two lines convert class extract to method in class
-        // classes+= (this.state.count===0) ? 'warning' : "primary";
+        // classes+= (this.state.value===0) ? 'warning' : "primary";
         return (
             ///  react.createElement  // jsx expersion it compile react element
             <div>
@@ -51,13 +52,13 @@ class Counter extends Component {
     }
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += (this.state.count === 0) ? 'warning' : "primary";
+        classes += (this.state.value === 0) ? 'warning' : "primary";
         return classes;
     }
 
     formatCount() {
-        const {count} = this.state; // object destruction
-        return count === 0 ? 'Zero' : count;
+        const {value} = this.state; // object destruction
+        return value === 0 ? 'Zero' : value;
     }
 }
 
