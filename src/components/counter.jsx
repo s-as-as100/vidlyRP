@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state= {  //  any data is used in component by using the state object
-        count :0,
+        count : 0
        
        
 
@@ -20,10 +20,10 @@ class Counter extends Component {
 
 
 
-    handleIncrement = e => { // passing event Arguments
+    handleIncrement = () => { // passing event Arguments
         // console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
         // by using of bind method 
-        console.log(e)
+        //console.log(e)
         this.setState({count: this.state.count + 1}) // uopdated the state 
     }
 
@@ -44,7 +44,7 @@ class Counter extends Component {
             ///  react.createElement  // jsx expersion it compile react element
             <div>
              <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-             <button onClick={ () => this.handleIncrement(e)} className="btn btn-secondary btn-sm">Increment</button>
+             <button onClick={ () => this.handleIncrement()} className="btn btn-secondary btn-sm">Increment</button>
 
             </div>
         )
