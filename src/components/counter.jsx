@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-    state= {  //  any data is used in component by using the state object
-        value: this.props.value
+    // control components doesn't have  its own local state
+    // state= {  //  any data is used in component by using the state object
+    //     value: this.props.counter.value
        
        
 
-    };
+    // };
 
 
     // bind methods 
@@ -20,12 +21,12 @@ class Counter extends Component {
 
 
 
-    handleIncrement = () => { // passing event Arguments
-        // console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
-        // by using of bind method 
-        //console.log(e)
-        this.setState({value: this.state.value + 1}) // uopdated the state 
-    }
+    // handleIncrement = () => { // passing event Arguments
+    //     // console.log("Increment Clicked", this) // this event handler is not access this state { strict mode is enable } solve 
+    //     // by using of bind method 
+    //     //console.log(e)
+    //     this.setState({value: this.state.value + 1}) // uopdated the state 
+    // }
     // !IMPORTANT 
     // {
     //     THE COMPONENT THAT OWNS A PIECE OF THE STATE, SHOULD BE THE ONE MODIFYING IT 
@@ -52,20 +53,21 @@ class Counter extends Component {
             ///  react.createElement  // jsx expersion it compile react element
             <div>
              <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-             <button onClick={ () => this.handleIncrement()} className="btn btn-secondary btn-sm">Increment</button>
-             <button onClick={ () => this.props.onDelete(this.props.id)} className="btn btn-danger btn-sm m-2">Delete</button>
+             <button onClick={ () => this.props.onIncrement(this.props.counter)} className="btn btn-secondary btn-sm">Increment</button>
+             <button onClick={ () => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm m-2">Delete</button>
+         
 
             </div>
         )
     }
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += (this.state.value === 0) ? 'warning' : "primary";
+        classes += (this.props.counter.value === 0) ? 'warning' : "primary";
         return classes;
     }
 
     formatCount() {
-        const {value} = this.state; // object destruction
+        const {value} = this.props.counter; // object destruction
         return value === 0 ? 'Zero' : value;
     }
 }
