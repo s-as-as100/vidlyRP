@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Navbar extends Component {
-    state = {  }
-    render() { 
+
+// stateless components
+
+const Navbar = (props) => {
+
+     
         return (
            
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-                    <a className='navbar-band' href='#'>Navbar</a>
-                </nav>
-             
-          );
-    }
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+                <a className='navbar-band' href='#'>Navbar
+                <span className="badge badge-pill badge-secondary">{props.totalCounters}</span>
+                </a>
+            </nav>
+         
+      );
+    
 }
+ 
  
 export default Navbar;
 // when there is no parent child relation b/w two components nd 
