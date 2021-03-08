@@ -3,14 +3,14 @@ import React from 'react';
 
 // stateless components
 
-const Navbar = (props) => {
+const Navbar = ({totalCounters}) => {
 
      
         return (
            
             <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
                 <a className='navbar-band' href='#'>Navbar
-                <span className="badge badge-pill badge-secondary">{props.totalCounters}</span>
+                <span className="badge badge-pill badge-secondary">{totalCounters}</span>
                 </a>
             </nav>
          
